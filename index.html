@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày 20/10 - Gửi Mẹ Yêu Thương</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7aa 50%, #fbcfe8 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .bg-element {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(225, 29, 72, 0.12);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            z-index: 10;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #9f1239;
+            margin-bottom: 10px;
+        }
+        p.subtitle {
+            color: #be123c;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .envelope {
+            width: 200px;
+            height: 140px;
+            background: #f43f5e;
+            margin: 0 auto 30px;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .envelope:hover { transform: scale(1.05); }
+        .envelope-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .card-content {
+            display: none;
+            text-align: left;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 5px solid #e11d48;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.8s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .letter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #be123c;
+            margin-bottom: 15px;
+        }
+        .letter-body {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+        .heart {
+            position: fixed;
+            color: #f43f5e;
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall 4s linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc Mừng Ngày 20/10</h1>
+        <p class="subtitle">Gửi tới Mẹ - Người phụ nữ tuyệt vời nhất cuộc đời con ❤️</p>
+        
+        <div class="envelope" id="envelope" onclick="openCard()">
+            <span class="envelope-text">✉️ Nhấn để mở thư</span>
+        </div>
+
+        <div class="card-content" id="cardContent">
+            <div class="letter-title">Mẹ Yêu Thương!</div>
+            <div class="letter-body">
+                Nhân ngày Phụ nữ Việt Nam 20/10, con xin kính chúc Mẹ luôn dồi dào sức khỏe, bình an và trọn vẹn niềm vui. Cảm ơn Mẹ vì những hy sinh thầm lặng, sự chăm sóc bao la và tình yêu thương vô bờ bến dành cho gia đình mình.<br><br>
+                Mong Mẹ luôn mỉm cười mỗi ngày và sống thật hạnh phúc bên chúng con!
+            </div>
+            <p style="text-align: right; font-weight: 600; color: #9f1239;">— Con của Mẹ</p>
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById('envelope').style.display = 'none';
+            document.getElementById('cardContent').style.display = 'block';
+            createHearts();
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '🌸';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
